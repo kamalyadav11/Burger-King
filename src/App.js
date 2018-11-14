@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
+import Layout from "./components/Layout/Layout";
 
 class App extends Component {
   render() {
-    return <div className="App">Burger King</div>;
+    return (
+      <div className="App">
+        <Layout>
+          <p>This is a Burger</p>
+        </Layout>
+      </div>
+    );
   }
 }
 
