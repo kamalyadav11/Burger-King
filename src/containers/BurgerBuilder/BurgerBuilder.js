@@ -31,6 +31,9 @@ export default class BurgerBuilder extends Component {
   };
 
   removeIngredientHandler = type => {
+    if (this.state.ingredients[type] <= 0) {
+      return;
+    }
     const updatedCount = this.state.ingredients[type] - 1;
     const updatedIngredients = { ...this.state.ingredients };
     updatedIngredients[type] = updatedCount;

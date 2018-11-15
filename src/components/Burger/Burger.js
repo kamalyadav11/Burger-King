@@ -16,7 +16,7 @@ const Burger = props => {
       return arr.concat(el);
     }, []);
 
-  if (transformedIngredients.length < 1) {
+  if (transformedIngredients.length === 0) {
     transformedIngredients = (
       <p>Please start adding ingredient to your Burger</p>
     );
