@@ -4,7 +4,7 @@ import "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const Burger = props => {
-  const transformedIngredients = Object.keys(props.ingredients) //converting object to array
+  let transformedIngredients = Object.keys(props.ingredients) //converting object to array
     .map(igKey => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
         //returning array of value of the type of the ingredient
@@ -15,7 +15,12 @@ const Burger = props => {
       //reducing array of arrays to a single array
       return arr.concat(el);
     }, []);
-  console.log(transformedIngredients);
+
+  if (transformedIngredients.length < 1) {
+    transformedIngredients = (
+      <p>Please start adding ingredient to your Burger</p>
+    );
+  }
 
   return (
     <div className="Burger">
