@@ -17,7 +17,14 @@ export default class BurgerBuilder extends Component {
       meat: 0,
       bacon: 0
     },
-    totalPrice: 5
+    totalPrice: 5,
+    purchasable: false
+  };
+
+  updatePurchaseState = () => {
+    if (this.state.totalPrice > 5) {
+      this.setState({ purchasable: true });
+    }
   };
 
   addIngredietHandler = type => {
@@ -63,6 +70,7 @@ export default class BurgerBuilder extends Component {
             ingredientremoved={this.removeIngredientHandler}
             disabled={disabledInfo}
             price={this.state.totalPrice}
+            purchasable={this.state.purchasable}
           />
         </div>
       </>
