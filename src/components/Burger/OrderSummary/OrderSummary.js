@@ -14,7 +14,7 @@ const OrderSummary = props => {
     <React.Fragment>
       <h3>Your Order</h3>
       <p>Your delicious Burger Contains following ingredients</p>
-      {ingredientSummary}
+      <ul>{ingredientSummary}</ul>
     </React.Fragment>
   );
 };
