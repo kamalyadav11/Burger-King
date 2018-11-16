@@ -77,7 +77,7 @@ export default class BurgerBuilder extends Component {
             purchasable={this.state.purchasable}
           />
           <Modal>
-            <OrderSummary />
+            <OrderSummary ingredients={this.state.ingredients} />
           </Modal>
         </div>
       </>

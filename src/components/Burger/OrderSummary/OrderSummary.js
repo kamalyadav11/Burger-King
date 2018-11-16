@@ -1,9 +1,9 @@
 import React from "react";
 
 const OrderSummary = props => {
-  const ingredientSummary = Object.keys(props.ingredients).map(igKey => {
+  const ingredientSummary = Object.keys(props.ingredients).map((igKey, i) => {
     return (
-      <li>
+      <li key={igKey + i}>
         <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
         {props.ingredients[igKey]}
       </li>
