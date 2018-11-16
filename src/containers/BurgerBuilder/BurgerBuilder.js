@@ -66,6 +66,9 @@ export default class BurgerBuilder extends Component {
     return (
       <>
         <div>
+          <Modal>
+            <OrderSummary ingredients={this.state.ingredients} />
+          </Modal>
           <Burger ingredients={this.state.ingredients} />
         </div>
         <div>
@@ -76,9 +79,6 @@ export default class BurgerBuilder extends Component {
             price={this.state.totalPrice}
             purchasable={this.state.purchasable}
           />
-          <Modal>
-            <OrderSummary ingredients={this.state.ingredients} />
-          </Modal>
         </div>
       </>
     );
