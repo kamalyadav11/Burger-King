@@ -34,6 +34,10 @@ export default class BurgerBuilder extends Component {
     this.setState({ purchasing: true });
   };
 
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
   addIngredietHandler = type => {
     const updatedCount = this.state.ingredients[type] + 1;
     const updatedIngredients = { ...this.state.ingredients };
@@ -72,7 +76,10 @@ export default class BurgerBuilder extends Component {
       <>
         <div>
           {this.state.purchasing ? (
-            <Modal show={this.state.purchasing}>
+            <Modal
+              show={this.state.purchasing}
+              modalClosed={this.purchaseCancelHandler}
+            >
               <OrderSummary ingredients={this.state.ingredients} />
             </Modal>
           ) : null}
