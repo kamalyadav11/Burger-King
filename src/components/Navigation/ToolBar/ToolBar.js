@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes './ToolBar.css'
+import classes from "./ToolBar.css";
 
 const toolbar = props => {
   return (
