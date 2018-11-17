@@ -4,7 +4,7 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 
 import classes from "./SideDrawer.css";
 
-const sideDrawer = props => {
+const sideDrawer = () => {
   return (
     <div className={classes.SideDrawer}>
       <Logo height="10%" />
