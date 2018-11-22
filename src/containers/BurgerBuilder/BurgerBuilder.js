@@ -20,13 +20,15 @@ class BurgerBuilder extends Component {
     totalPrice: 5,
     purchasable: false,
     purchasing: false,
-    loading: false
+    loading: false,
+    error: null
   };
 
   componentDidMount() {
     axios
       .get("https://burgerking-54612.firebaseio.com/ingredients")
-      .then(response => this.setState({ ingredients: response.data }));
+      .then(response => this.setState({ ingredients: response.data }))
+      .catch(err => this.setState({ error: err }));
   }
 
   updatePurchaseState = () => {
