@@ -112,29 +112,35 @@ class BurgerBuilder extends Component {
       orderSummary = <Spinner />;
     }
 
+    let burger = (
+      <React.Fragment>
+        <Burger ingredients={this.state.ingredients} />
+        <BuildControls
+          ingredientAdded={this.addIngredietHandler}
+          ingredientremoved={this.removeIngredientHandler}
+          disabled={disabledInfo}
+          price={this.state.totalPrice}
+          purchasable={this.state.purchasable}
+          ordered={this.purchaseHandler}
+        />
+      </React.Fragment>
+    );
+
+    if (!this.state.ingredients) {
+      burger = <Spinner />;
+    }
+
     return (
       <>
-        <div>
-          {this.state.purchasing ? (
-            <Modal
-              show={this.state.purchasing}
-              modalClosed={this.purchaseCancelHandler}
-            >
-              {orderSummary}
-            </Modal>
-          ) : null}
-          <Burger ingredients={this.state.ingredients} />
-        </div>
-        <div>
-          <BuildControls
-            ingredientAdded={this.addIngredietHandler}
-            ingredientremoved={this.removeIngredientHandler}
-            disabled={disabledInfo}
-            price={this.state.totalPrice}
-            purchasable={this.state.purchasable}
-            ordered={this.purchaseHandler}
-          />
-        </div>
+        {this.state.purchasing ? (
+          <Modal
+            show={this.state.purchasing}
+            modalClosed={this.purchaseCancelHandler}
+          >
+            {orderSummary}
+          </Modal>
+        ) : null}
+        {burger}
       </>
     );
   }
