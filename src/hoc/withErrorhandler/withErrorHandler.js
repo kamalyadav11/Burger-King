@@ -17,10 +17,16 @@ const withErrorHandler = (WrappedComponent, axios) => {
       });
     }
 
+    errorConfirmedHandler = () => {
+      this.setState({ error: null });
+    };
+
     render() {
       return (
         <React.Fragment>
-          <Modal show={this.state.error}>{this.state.error.message}</Modal>
+          <Modal show={this.state.error} clicked={this.errorConfirmedHandler}>
+            {this.state.error.message}
+          </Modal>
           <WrappedComponent {...this.props} />
         </React.Fragment>
       );
