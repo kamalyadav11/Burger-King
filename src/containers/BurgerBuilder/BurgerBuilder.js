@@ -26,9 +26,9 @@ class BurgerBuilder extends Component {
 
   componentDidMount() {
     axios
-      .get("https://burgerking-54612.firebaseio.com/ingredients")
+      .get("https://burgerking-54612.firebaseio.com/ingredients.json")
       .then(response => this.setState({ ingredients: response.data }))
-      .catch(err => this.setState({ error: err }));
+      .catch(err => this.setState({ error: true }));
   }
 
   updatePurchaseState = () => {
@@ -129,7 +129,11 @@ class BurgerBuilder extends Component {
     );
 
     if (!this.state.ingredients) {
-      burger = <Spinner />;
+      burger = this.state.error ? (
+        <p>Ingredients can't be loaded</p>
+      ) : (
+        <Spinner />
+      );
     }
 
     return (
