@@ -1,14 +1,16 @@
 import React from "react";
 import Modal from "../../components/UI/Modal/Modal";
 
-const withErrorHandler = WrappedComponent => {
-  return props => {
-    return (
-      <React.Fragment>
-        <Modal show>Something went Wrong!!!</Modal>
-        <WrappedComponent {...props} />
-      </React.Fragment>
-    );
+const withErrorHandler = (WrappedComponent, axios) => {
+  return class extends React.Component {
+    render() {
+      return (
+        <React.Fragment>
+          <Modal show>Something went Wrong!!!</Modal>
+          <WrappedComponent {...this.props} />
+        </React.Fragment>
+      );
+    }
   };
 };
 
