@@ -42,6 +42,7 @@ export default class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
+    this.setState({ loading: true });
     const order = {
       ingredients: this.state.ingredients,
       totalPrice: this.state.totalPrice,
@@ -58,8 +59,8 @@ export default class BurgerBuilder extends Component {
 
     axios
       .post("/orders.json", order)
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
+      .then(() => this.setState({ loading: false }))
+      .catch(() => this.setState({ loading: false }));
   };
 
   addIngredietHandler = type => {
