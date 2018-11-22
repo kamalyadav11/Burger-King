@@ -16,17 +16,18 @@ const INGREDIENT_PRICE = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingredients: {
-      salad: 0,
-      cheese: 0,
-      meat: 0,
-      bacon: 0
-    },
+    ingredients: null,
     totalPrice: 5,
     purchasable: false,
     purchasing: false,
     loading: false
   };
+
+  componentDidMount() {
+    axios
+      .get("https://burgerking-54612.firebaseio.com/ingredients.json")
+      .then(response => this.setState({ ingredients: response.data }));
+  }
 
   updatePurchaseState = () => {
     if (this.state.totalPrice > 5) {
