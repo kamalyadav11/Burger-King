@@ -43,10 +43,11 @@ export default class Checkout extends Component {
         />
         <Route
           path={this.props.match.path + "/contact-data"}
-          render={() => (
+          render={props => (
             <ContactData
               ingredients={this.state.ingredients}
               price={this.state.totalPrice}
+              {...props} //for using history prop in contactdata
             />
           )} //using render and not component so that we can pass props to the component
         />
