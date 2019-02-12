@@ -42,7 +42,7 @@ export default class Checkout extends Component {
         />
         <Route
           path={this.props.match.path + "/contact-data"}
-          component={ContactData}
+          render={() => <ContactData ingredients={this.state.ingredients} />} //using render and not component so that we can pass props to the component
         />
       </div>
     );
