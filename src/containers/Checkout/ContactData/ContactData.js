@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "../../../components/UI/Button/Button";
 import classes from "./ContactData.css";
-import axios from "axios";
+import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 
 export default class ContactData extends Component {
@@ -34,10 +34,10 @@ export default class ContactData extends Component {
 
     axios
       .post("/orders.json", order)
-      .then(
-        () => this.setState({ loading: false }),
-        this.props.history.push("/")
-      )
+      .then(() => {
+        this.setState({ loading: false });
+        this.props.history.push("/");
+      })
       .catch(() => this.setState({ loading: false }));
   };
 
