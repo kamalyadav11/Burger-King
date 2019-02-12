@@ -9,7 +9,7 @@ export default class Checkout extends Component {
     price: 0
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let price = 0;

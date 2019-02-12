@@ -33,8 +33,8 @@ export default class ContactData extends Component {
 
     axios
       .post("/orders.json", order)
-      .then(() => this.setState({ loading: false, purchasing: false }))
-      .catch(() => this.setState({ loading: false, purchasing: false }));
+      .then(() => this.setState({ loading: false }))
+      .catch(() => this.setState({ loading: false }));
   };
 
   render() {
