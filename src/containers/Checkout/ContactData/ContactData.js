@@ -79,6 +79,10 @@ export default class ContactData extends Component {
       .catch(() => this.setState({ loading: false }));
   };
 
+  inputChangeHandler = e => {
+    console.log(e.target.value);
+  };
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.orderForm) {
@@ -93,6 +97,7 @@ export default class ContactData extends Component {
             elementType={formElements.config.elementType}
             elementConfig={formElements.config.elementConfig}
             value={formElements.config.value}
+            changed={this.inputChangeHandler}
           />
         ))}
         <Button btnType="Success" clicked={this.orderHandler}>
