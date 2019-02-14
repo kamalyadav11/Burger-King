@@ -45,10 +45,30 @@ export default class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <Input type="text" name="name" placeholder="Your Name" />
-        <Input type="email" name="email" placeholder="Your email" />
-        <Input type="text" name="street" placeholder="Street" />
-        <Input type="text" name="postal" placeholder="Postal Code" />
+        <Input
+          inputType="input"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+        />
+        <Input
+          inputType="input"
+          type="email"
+          name="email"
+          placeholder="Your email"
+        />
+        <Input
+          inputType="input"
+          type="text"
+          name="street"
+          placeholder="Street"
+        />
+        <Input
+          inputType="input"
+          type="text"
+          name="postal"
+          placeholder="Postal Code"
+        />
         <Button btnType="Success" clicked={this.orderHandler}>
           ORDER
         </Button>
