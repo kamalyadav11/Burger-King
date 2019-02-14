@@ -13,6 +13,7 @@ const Input = props => {
     default:
       inputElement = <input {...props} />;
   }
+
   return (
     <div>
       <label>{props.label}</label>
