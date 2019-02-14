@@ -93,7 +93,7 @@ export default class ContactData extends Component {
     }
 
     let form = (
-      <form>
+      <form onSubmit={this.orderHandler}>
         {formElementsArray.map(formElements => (
           <Input
             key={formElements.id}
@@ -103,9 +103,7 @@ export default class ContactData extends Component {
             changed={e => this.inputChangeHandler(e, formElements.id)}
           />
         ))}
-        <Button btnType="Success" clicked={this.orderHandler}>
-          ORDER
-        </Button>
+        <Button btnType="Success">ORDER</Button>
       </form>
     );
 
