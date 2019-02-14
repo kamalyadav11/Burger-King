@@ -18,7 +18,8 @@ export default class ContactData extends Component {
         validation: {
           required: true
         },
-        valid: false
+        valid: false,
+        touched: false
       },
       street: {
         elementType: "input",
@@ -27,7 +28,11 @@ export default class ContactData extends Component {
           placeholder: "Street"
         },
         value: "",
-        valid: false
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
       },
       zipCode: {
         elementType: "input",
@@ -41,7 +46,8 @@ export default class ContactData extends Component {
           minLength: 5,
           maxLength: 5
         },
-        valid: false
+        valid: false,
+        touched: false
       },
       country: {
         elementType: "input",
@@ -53,7 +59,8 @@ export default class ContactData extends Component {
         validation: {
           required: true
         },
-        valid: false
+        valid: false,
+        touched: false
       },
       email: {
         elementType: "input",
@@ -65,7 +72,8 @@ export default class ContactData extends Component {
         validation: {
           required: true
         },
-        valid: false
+        valid: false,
+        touched: false
       },
       deleiveryMethod: {
         elementType: "select",
@@ -149,6 +157,8 @@ export default class ContactData extends Component {
             elementType={formElements.config.elementType}
             elementConfig={formElements.config.elementConfig}
             value={formElements.config.value}
+            invalid={!formElements.config.valid}
+            shouldValidate={formElements.config.validation}
             changed={e => this.inputChangeHandler(e, formElements.id)}
           />
         ))}
