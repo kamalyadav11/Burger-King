@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Button from "../../../components/UI/Button/Button";
-import classes from "./ContactData.css";
 import axios from "../../../axios-orders";
-import Spinner from "../../../components/UI/Spinner/Spinner";
+import Button from "../../../components/UI/Button/Button";
 import Input from "../../../components/UI/Input/Input";
+import Spinner from "../../../components/UI/Spinner/Spinner";
+import classes from "./ContactData.css";
 
 export default class ContactData extends Component {
   state = {
@@ -69,7 +69,6 @@ export default class ContactData extends Component {
       ingredients: this.props.ingredients,
       totalPrice: this.props.price
     };
-
     axios
       .post("/orders.json", order)
       .then(() => {
@@ -109,9 +108,11 @@ export default class ContactData extends Component {
         </Button>
       </form>
     );
+
     if (this.state.loading) {
       form = <Spinner />;
     }
+
     return (
       <div className={classes.ContactData}>
         <h4>Enter your contact Data</h4>
