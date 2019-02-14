@@ -84,6 +84,7 @@ export default class ContactData extends Component {
           ]
         },
         value: "",
+        validation: {},
         valid: true
       }
     },
