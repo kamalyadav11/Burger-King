@@ -65,9 +65,16 @@ export default class ContactData extends Component {
   orderHandler = e => {
     e.preventDefault();
     this.setState({ loading: true });
+    const formData = {};
+    for (let formElementIdentifier in this.state.orderForm) {
+      formData[formElementIdentifier] = this.state.orderForm[
+        formElementIdentifier
+      ].value;
+    }
     const order = {
       ingredients: this.props.ingredients,
-      totalPrice: this.props.price
+      totalPrice: this.props.price,
+      orderData: formData
     };
     axios
       .post("/orders.json", order)
