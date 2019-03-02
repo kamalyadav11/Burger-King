@@ -24,12 +24,12 @@ class BurgerBuilder extends Component {
     error: null
   };
 
-  componentDidMount() {
-    axios
-      .get("https://burgerking-54612.firebaseio.com/ingredients.json")
-      .then(response => this.setState({ ingredients: response.data }))
-      .catch(err => this.setState({ error: true }));
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get("https://burgerking-54612.firebaseio.com/ingredients.json")
+  //     .then(response => this.setState({ ingredients: response.data }))
+  //     .catch(err => this.setState({ error: true }));
+  // }
 
   updatePurchaseState = () => {
     if (this.state.totalPrice > 5) {
