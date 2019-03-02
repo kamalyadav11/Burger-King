@@ -11,7 +11,7 @@ import * as actionTypes from "../../store/actions";
 
 class BurgerBuilder extends Component {
   state = {
-    purchasable: false,
+    // purchasable: false,
     purchasing: false,
     loading: false,
     error: null
@@ -25,9 +25,10 @@ class BurgerBuilder extends Component {
   // }
 
   updatePurchaseState = () => {
-    if (this.state.totalPrice > 5) {
-      this.setState({ purchasable: true });
-    }
+    // if (this.state.totalPrice > 5) {
+    // this.setState({ purchasable: true });
+    return this.state.totalPrice > 5;
+    // }
   };
 
   purchaseHandler = () => {
@@ -85,7 +86,7 @@ class BurgerBuilder extends Component {
           ingredientremoved={this.props.onIngredientRemoved}
           disabled={disabledInfo}
           price={this.props.price}
-          purchasable={this.state.purchasable}
+          purchasable={this.updatePurchaseState}
           ordered={this.purchaseHandler}
         />
       </React.Fragment>
